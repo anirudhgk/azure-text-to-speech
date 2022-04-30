@@ -66,7 +66,7 @@ OR
 
 -	Import the COLLECTION: [project_collection_postman.postman_collection.json](https://github.com/anirudhgk/azure-text-to-speech/blob/main/docs/project_collection_postman.postman_collection.json) from the docs folder in the repository and send the GET request.
 
-### From Browser:
+#### From Browser:
 
 -	Click on the URL: http://143.198.185.98:3000/
 
