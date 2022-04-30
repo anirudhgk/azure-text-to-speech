@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Microsoft Azure Text to Speech Demo</title>
+    <meta charset="utf-8" />
+</head>
+
+<body>
+
+    <!-- UI template -->
+    <div id="content" style="display:none">
+        <h1 style="font-weight:500;text-align: center;">Microsoft Azure Text to Speech </h1>
+        <table width="100%">
+            <tr>
+                <td align="right">Input Text (max 255 char)</td>
+                <td>
+                    <textarea id="phraseDiv"
+                              style="display: inline-block;width:500px;height:50px"
+                              maxlength="255">Hi! How are you doing?
+                    </textarea>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <div>
+                        <button onclick="updateSrc()">Load Audio</button>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td align="right">Stream audio from buffer on server</td>
+                <td>
+                    <audio id="serverAudioStream"
+                           controls preload="none"
+                           onerror="DisplayError()">
+                    </audio>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- Speech SDK reference -->
+    <script
+        src="https://cdn.jsdelivr.net/npm/microsoft-cognitiveservices-speech-sdk@latest/distrib/browser/microsoft.cognitiveservices.speech.sdk.bundle-min.js">
+    </script>
+
+    <!-- Speech SDK usage -->
+    <script>
+        // fields
+        var phraseDiv;
+        var resultDiv;
+
+        var authorizationToken;
+        var SpeechSDK;
+        var synthesizer;
+
+        var phrase = "all good men must come to the aid"
+        var queryString = null;
+
+        var audioType = "audio/mpeg";
+        var serverSrc = "/text-to-speech";
+
+        document.getElementById('serverAudioStream').disabled = true;
+
+        // update the src src URL query string for the server
+        function updateSrc() {
+            // input
+            phrase = document.getElementById('phraseDiv').value.trim();
+
+            // control server
+            var serverAudioStreamControl = document.getElementById('serverAudioStream');
+            const streamQueryString = `phrase=${phrase}`;
+            serverAudioStreamControl.src = `${serverSrc}?${streamQueryString}`;
+            console.log(serverAudioStreamControl.src)
+            serverAudioStreamControl.type = "audio/mpeg";
+            serverAudioStreamControl.disabled = false;
+        }
+
+        // Errors
+        function DisplayError(error) {
+            window.alert(JSON.stringify(error));
+        }
+
+        // Initialization
+        document.addEventListener("DOMContentLoaded", function () {
+            var resultDiv = document.getElementById("resultDiv");
+            phrase = document.getElementById('phraseDiv').value;
+            if (!!window.SpeechSDK) {
+                SpeechSDK = window.SpeechSDK;
+                document.getElementById('content').style.display = 'block';
+            }
+        });
+
+    </script>
+</body>
+
+</html>

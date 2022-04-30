@@ -1,0 +1,29 @@
+{
+    "name": "microsoft-azure-text-to-speech",
+    "version": "1.0.0",
+    "description": "Azure text to speech written in javascript using express",
+    "main": "index.js",
+    "scripts": {
+        "build": "npm run lint",
+        "start": "node src/index.js",
+        "start:dev": "npm run lint && nodemon --exec node src/index.js --unhandled-rejections=warn",
+        "test": "jest --detectOpenHandles --coverage",
+        "lint": "eslint src/**/*.js --fix"
+    },
+    "author": "Anirudh Gadehothur Karanam",
+    "license": "ISC",
+    "devDependencies": {
+        "eslint": "^7.9.0",
+        "jest": "^26.4.2",
+        "nodemon": "^2.0.4",
+        "prettier": "^2.1.2",
+        "supertest": "^6.1.1"
+    },
+    "dependencies": {
+        "body-parser": "^1.19.0",
+        "dotenv": "^8.6.0",
+        "express": "^4.17.1",
+        "microsoft-cognitiveservices-speech-sdk": "^1.21.0",
+        "serve-favicon": "^2.5.0"
+    }
+}
