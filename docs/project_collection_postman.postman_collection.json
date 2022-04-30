@@ -1,0 +1,37 @@
+{
+	"info": {
+		"_postman_id": "0724b3d8-a2bf-430e-83f3-4081fa09d708",
+		"name": "project_collection_postman",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "text-to-speech",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://143.198.185.98:3000/text-to-speech?phrase=I am anirudh",
+					"protocol": "http",
+					"host": [
+						"143",
+						"198",
+						"185",
+						"98"
+					],
+					"port": "3000",
+					"path": [
+						"text-to-speech"
+					],
+					"query": [
+						{
+							"key": "phrase",
+							"value": "I am anirudh"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
