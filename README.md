@@ -15,7 +15,7 @@ In this application we convert text into humanlike synthesized speech using Node
 ** Note: For this application, the API keys have already been created and deployed from the DEV.env file (to protect the API key, this file is not exposed on the repository), but if one has to clone and run the app from git, they should set up their own.
 
 ** Please refer this [file](https://github.com/anirudhgk/azure-text-to-speech/blob/main/docs/documentation.pdf) for a detailed documentation.
-(You'll have the steps to create the keys ie., the speech resource, all the installations and usage with images)
+(You'll have the steps to create the keys ie., the speech resource, all the installations and usage with screenshots)
 
 ## Installation:
 
